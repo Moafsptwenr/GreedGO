@@ -5,4 +5,7 @@ Want to do a GO language security framework.Will continue to update, maybe the a
 
 功能会继续更新，可能会慢一点，如果不想把整个下载下去，可以复制出单独的代码，改一下包和主函数名就可以了。
 
-有的包里面的还没有引用到main.go中,也会修改的
+有的包里面的还没有引用到main.go中,后面也会修改的
+
+2022/10/13
+这段时间主要会更新poc中的利用代码和一个png隐写
