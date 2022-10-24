@@ -7,4 +7,4 @@ Want to do a GO language security framework.Will continue to update, maybe the a
 
 有的包里面的还没有引用到main.go中,后面也会修改的
 
-2022/10/13：这段时间主要会更新poc中的利用代码和一个图片隐写
+2022/10/13：这段时间主要会更新poc中的利用代码、一个图片隐写和一个病毒
