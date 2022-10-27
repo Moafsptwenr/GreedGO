@@ -183,12 +183,17 @@ func main() {
 		file_upload(url1, payload1, file_name)
 	} else if string(choose1) == "4" {
 		fmt.Println("[*] your choose Command exec")
-		fmt.Print("[*] input url: ")
-		url1 := readInput()
-		fmt.Print("[*] input command: ")
-		payload1 := readInput()
-		fmt.Print("[*] input file name: ")
-		file_name := readInput()
-		command_exec(url1, file_name, payload1)
+		for {
+			fmt.Print("[*] input url: ")
+			url1 := readInput()
+			fmt.Print("[*] input file name: ")
+			file_name := readInput()
+			fmt.Print("[*] input command/quit input `exit`: ")
+			payload1 := readInput()
+			if payload1 == "exit" {
+				break
+			}
+			command_exec(url1, file_name, payload1)
+		}
 	}
 }
