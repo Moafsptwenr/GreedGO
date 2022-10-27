@@ -57,7 +57,6 @@ func file_read(url1, file_name string) {
 	}
 	body1, err := ioutil.ReadAll(rep1.Body)
 	fmt.Println(string(body1))
-
 }
 
 func file_upload(url1, payload1, file_name string) {
